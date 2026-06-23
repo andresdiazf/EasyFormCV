@@ -1,0 +1,7 @@
+export declare const TABLES: {
+    readonly profiles: "profiles";
+    readonly form_mappings: "form_mappings";
+    readonly runs: "runs";
+};
+export declare const CREATE_TABLES_SQL = "\nCREATE TABLE IF NOT EXISTS profiles (\n  id          TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(16)))),\n  full_name   TEXT NOT NULL DEFAULT '',\n  email       TEXT NOT NULL DEFAULT '',\n  phone       TEXT NOT NULL DEFAULT '',\n  location    TEXT NOT NULL DEFAULT '',\n  summary     TEXT NOT NULL DEFAULT '',\n  created_at  TEXT NOT NULL DEFAULT (datetime('now')),\n  updated_at  TEXT NOT NULL DEFAULT (datetime('now'))\n);\n\nCREATE TABLE IF NOT EXISTS form_mappings (\n  id          TEXT PRIMARY KEY DEFAULT (lower(hex(randomblob(16)))),\n  url         TEXT NOT NULL DEFAULT '',\n  fields_json TEXT NOT NULL DEFAULT '[]',\n  mappings_json TEXT NOT NULL DEFAULT '[]',\n  created_at  TEXT NOT NULL DEFAULT (datetime('now')),\n  updated_at  TEXT NOT NULL DEFAULT (datetime('now'))\n);\n\nCREATE TABLE IF NOT EXISTS runs (\n  id               TEXT PRIMARY KEY,\n  status           TEXT NOT NULL DEFAULT 'pending',\n  url              TEXT NOT NULL DEFAULT '',\n  profile_snapshot TEXT NOT NULL DEFAULT '{}',\n  filled_json      TEXT NOT NULL DEFAULT '[]',\n  failed_json      TEXT NOT NULL DEFAULT '[]',\n  screenshot_path  TEXT,\n  error            TEXT,\n  created_at       TEXT NOT NULL DEFAULT (datetime('now')),\n  updated_at       TEXT NOT NULL DEFAULT (datetime('now'))\n);\n";
+//# sourceMappingURL=schema.d.ts.map

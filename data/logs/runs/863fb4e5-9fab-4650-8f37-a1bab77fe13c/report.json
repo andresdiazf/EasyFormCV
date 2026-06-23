@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "filled": [
+    "fullName",
+    "email",
+    "phone",
+    "location",
+    "summary"
+  ],
+  "failed": [],
+  "screenshots": [
+    "c:\\Users\\andre\\Developer\\Projects\\EasyFormCV\\data\\logs\\runs\\863fb4e5-9fab-4650-8f37-a1bab77fe13c\\filled.png"
+  ],
+  "tracePath": "c:\\Users\\andre\\Developer\\Projects\\EasyFormCV\\data\\logs\\runs\\863fb4e5-9fab-4650-8f37-a1bab77fe13c\\trace.zip"
+}

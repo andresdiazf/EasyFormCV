@@ -1,0 +1,75 @@
+MIT License
+
+Copyright (c) 2026 EasyFormCV Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Third-party Dependencies Licensing
+
+This project uses the following open-source libraries. Each is used in compliance
+with its respective license.
+
+### Node.js Dependencies (MIT unless noted)
+| Package                   | License  | Notes                                        |
+|---------------------------|----------|----------------------------------------------|
+| fastify                   | MIT      | HTTP framework                               |
+| @fastify/cors             | MIT      | CORS plugin                                  |
+| @fastify/multipart        | MIT      | Multipart file uploads                       |
+| @fastify/static           | MIT      | Static file serving                          |
+| @prisma/client            | Apache-2 | ORM client (compatible with MIT projects)    |
+| @prisma/adapter-pg        | Apache-2 | PostgreSQL adapter for Prisma 7              |
+| pg                        | MIT      | PostgreSQL driver                            |
+| zod                       | MIT      | Schema validation                            |
+| react, react-dom          | MIT      | UI framework                                 |
+| @tanstack/react-query     | MIT      | Server state management                      |
+| vite, @vitejs/plugin-react| MIT      | Build tooling                                |
+| tailwindcss               | MIT      | CSS utilities                                |
+| uuid                      | MIT      | UUID generation                              |
+| pino, pino-pretty         | MIT      | Structured logging                           |
+| dotenv                    | MIT      | Environment variable loading                 |
+| typescript                | Apache-2 | Type system (dev only)                       |
+| vitest                    | MIT      | Unit testing (dev only)                      |
+
+### Python Dependencies (MIT/BSD unless noted)
+| Package       | License              | Notes                                    |
+|---------------|----------------------|------------------------------------------|
+| fastapi       | MIT                  | Python HTTP framework                    |
+| uvicorn       | BSD-3-Clause         | ASGI server                              |
+| pymupdf       | GNU AGPL-3.0 / Comm. | PDF parsing (**see note below**)         |
+| playwright    | Apache-2.0           | Browser automation                       |
+| pydantic      | MIT                  | Data validation                          |
+| httpx         | BSD-3-Clause         | HTTP client                              |
+| structlog     | MIT                  | Structured logging                       |
+| python-dotenv | BSD-3-Clause         | .env file loading                        |
+| python-multipart | MIT             | Multipart file uploads                   |
+| pytest        | MIT                  | Testing (dev only)                       |
+
+> [!WARNING]
+> **PyMuPDF (fitz) Licensing**: PyMuPDF is dual-licensed under the
+> **GNU Affero General Public License v3 (AGPL-3.0)** for open-source projects
+> and a commercial license for proprietary use.
+>
+> - **If you use this project commercially** (closed-source SaaS, paid product), you
+>   **must** either purchase a commercial PyMuPDF license from Artifex or replace
+>   PyMuPDF with an MIT-compatible alternative such as `pdfminer.six` or `pypdf`.
+> - For personal and open-source use under AGPL-3.0, PyMuPDF is free to use.
+>
+> Reference: https://pymupdf.readthedocs.io/en/latest/about.html#license

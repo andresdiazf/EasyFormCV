@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/app/app.tsx","./src/components/ui/index.tsx","./src/features/automation-runs/automationrunspanel.tsx","./src/features/cv-upload/cvuploadpanel.tsx","./src/features/form-mapping/formmappingpanel.tsx","./src/features/profile-editor/profileeditor.tsx","./src/lib/api-client.ts"],"version":"5.9.3"}
