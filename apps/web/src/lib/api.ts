@@ -24,7 +24,9 @@ import type {
   AutomationRun,
 } from "@easyformcv/shared-schemas";
 
-const BASE = "/api/v1";
+const API_ORIGIN = ((import.meta as any).env?.VITE_API_URL as string | undefined)
+  ?.replace(/\/$/, "") ?? "";
+const BASE = `${API_ORIGIN}/api/v1`;
 
 // ── Offline Cache ─────────────────────────────────────────────────────────────
 
