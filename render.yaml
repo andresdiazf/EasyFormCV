@@ -3,12 +3,40 @@ services:
     name: easyformcv-api
     runtime: node
     rootDir: .
-    buildCommand: npm install && cd apps/api && npm run build
+    buildCommand: npm ci && npm run build
     startCommand: cd apps/api && node dist/index.js
     envVars:
       - key: NODE_ENV
         value: production
+      - key: CORS_ORIGIN
+        sync: false
+      - key: ALLOW_PRIVATE_TARGETS
+        value: "false"
       - key: DATABASE_URL
         sync: false
-      - key: DIRECT_URL
+      - key: PDF_PARSER_URL
         sync: false
+      - key: BROWSER_AUTOMATION_URL
+        sync: false
+
+  - type: web
+    name: easyformcv-pdf-parser
+    runtime: python
+    rootDir: services/pdf-parser
+    buildCommand: pip install --upgrade pip && pip install -e .
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+
+  - type: web
+    name: easyformcv-browser-automation
+    runtime: python
+    rootDir: services/browser-automation
+    buildCommand: pip install --upgrade pip && pip install -e . && python -m playwright install chromium
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: DATA_DIR
+        value: /tmp/easyformcv

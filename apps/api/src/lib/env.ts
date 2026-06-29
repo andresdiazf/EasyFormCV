@@ -52,9 +52,19 @@ function requireEnv(key: string, fallback?: string): string {
   return value;
 }
 
+function parseBoolean(value: string | undefined, defaultValue: boolean): boolean {
+  if (value === undefined) {
+    return defaultValue;
+  }
+
+  return value.toLowerCase() === "true";
+}
+
 export const env = {
   API_PORT: parseInt(process.env.API_PORT ?? "3000", 10),
   API_HOST: process.env.API_HOST ?? "0.0.0.0",
+  CORS_ORIGIN: process.env.CORS_ORIGIN ?? "*",
+  ALLOW_PRIVATE_TARGETS: parseBoolean(process.env.ALLOW_PRIVATE_TARGETS, true),
   /**
    * PostgreSQL connection string.
    * Format: `postgresql://USER:PASSWORD@HOST:PORT/DATABASE`

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { getProfile, saveProfile, uploadCv, detectFields, getMapping } from "../../src/lib/api.js";
+import { getProfile, saveProfile, detectFields } from "../../src/lib/api.js";
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 

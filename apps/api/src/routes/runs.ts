@@ -105,7 +105,7 @@ export async function runsRoutes(app: FastifyInstance) {
       take: 50,
     });
     return reply.send(
-      runs.map((run) => ({
+      runs.map((run: any) => ({
         id: run.id,
         status: run.status,
         url: run.url,

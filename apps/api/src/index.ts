@@ -15,7 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // In dev: tsx runs from src/index.ts -> apps/api/src -> 3 levels up -> apps/web/dist
 // In prod: node runs from dist/index.js -> apps/api/dist -> 3 levels up -> apps/web/dist
-const WEB_DIST = path.resolve(__dirname, "../../../web/dist");
+const WEB_DIST = path.resolve(__dirname, "../../../apps/web/dist");
 
 const app = Fastify({
   logger: {
@@ -29,7 +29,7 @@ const app = Fastify({
 // ── Plugins ───────────────────────────────────────────────────────────────────
 
 await app.register(cors, {
-  origin: true,
+  origin: env.CORS_ORIGIN,
 });
 
 await app.register(multipart, {

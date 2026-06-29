@@ -1,7 +1,12 @@
-import { PrismaClient } from "@prisma/client";
+import prismaModule from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import pg from "pg";
 import { env } from "./env.js";
+
+const { PrismaClient } = prismaModule as unknown as {
+  PrismaClient: new (...args: any[]) => any;
+};
+type PrismaClientType = InstanceType<typeof PrismaClient>;
 
 /**
  * Prisma Client singleton for the EasyFormCV API.
@@ -28,10 +33,10 @@ import { env } from "./env.js";
 
 declare global {
   // eslint-disable-next-line no-var
-  var prisma: PrismaClient | undefined;
+  var prisma: PrismaClientType | undefined;
 }
 
-let prismaClient: PrismaClient;
+let prismaClient: PrismaClientType;
 
 if (env.DATABASE_URL.startsWith("postgresql://") || env.DATABASE_URL.startsWith("postgres://")) {
   const pool = new pg.Pool({ connectionString: env.DATABASE_URL });
