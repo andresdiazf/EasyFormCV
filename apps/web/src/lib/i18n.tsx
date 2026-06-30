@@ -6,6 +6,7 @@ const translations = {
   en: {
     // App shell
     appTitle: "EasyFormCV",
+    tabDashboard: "Dashboard",
     tabUploadCv: "Upload CV",
     tabProfileEditor: "Profile Editor",
     tabFormMapping: "Form Mapping",
@@ -32,6 +33,19 @@ const translations = {
     saving: "Saving…",
     profileSaved: "Profile saved.",
     loading: "Loading…",
+    superProfileTitle: "Super Profile (Markdown)",
+    markdownEdit: "Edit",
+    markdownPreview: "Preview",
+    superProfilePlaceholder: "Write your professional profile in Markdown...",
+    superProfileEmpty: "No markdown content yet.",
+
+    // Dashboard
+    dashboardTitle: "Dashboard",
+    dashboardDescription: "Quick overview of profile completeness, mappings and runs.",
+    dashboardProfileCompletion: "Profile completion",
+    dashboardMappings: "Mapped fields",
+    dashboardRuns: "Recent runs",
+    dashboardLastRun: "Last run",
 
     // Form Mapping
     mappingTitle: "Form Mapping",
@@ -81,6 +95,7 @@ const translations = {
   es: {
     // App shell
     appTitle: "EasyFormCV",
+    tabDashboard: "Dashboard",
     tabUploadCv: "Subir CV",
     tabProfileEditor: "Editor de Perfil",
     tabFormMapping: "Mapeo de Formulario",
@@ -107,6 +122,19 @@ const translations = {
     saving: "Guardando…",
     profileSaved: "Perfil guardado.",
     loading: "Cargando…",
+    superProfileTitle: "Super Perfil (Markdown)",
+    markdownEdit: "Editar",
+    markdownPreview: "Vista",
+    superProfilePlaceholder: "Escribí tu perfil profesional en Markdown...",
+    superProfileEmpty: "Aún no hay contenido en markdown.",
+
+    // Dashboard
+    dashboardTitle: "Dashboard",
+    dashboardDescription: "Vista rápida del perfil, mapeos y ejecuciones.",
+    dashboardProfileCompletion: "Completitud del perfil",
+    dashboardMappings: "Campos mapeados",
+    dashboardRuns: "Ejecuciones recientes",
+    dashboardLastRun: "Última ejecución",
 
     // Form Mapping
     mappingTitle: "Mapeo de Formulario",

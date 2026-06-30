@@ -4,8 +4,9 @@ import CvUpload from "../features/cv-upload/CvUpload.js";
 import ProfileEditor from "../features/profile-editor/ProfileEditor.js";
 import FormMapping from "../features/form-mapping/FormMapping.js";
 import AutomationRuns from "../features/automation-runs/AutomationRuns.js";
+import Dashboard from "../features/dashboard/Dashboard.js";
 
-type TabId = "cv-upload" | "profile-editor" | "form-mapping" | "automation-runs";
+type TabId = "dashboard" | "cv-upload" | "profile-editor" | "form-mapping" | "automation-runs";
 
 function LocaleSwitcher() {
   const { locale, setLocale } = useI18n();
@@ -35,9 +36,10 @@ function LocaleSwitcher() {
 
 export default function App() {
   const { t } = useI18n();
-  const [activeTab, setActiveTab] = useState<TabId>("cv-upload");
+  const [activeTab, setActiveTab] = useState<TabId>("dashboard");
 
   const TABS: { id: TabId; label: string }[] = [
+    { id: "dashboard", label: t("tabDashboard") },
     { id: "cv-upload", label: t("tabUploadCv") },
     { id: "profile-editor", label: t("tabProfileEditor") },
     { id: "form-mapping", label: t("tabFormMapping") },
@@ -78,6 +80,7 @@ export default function App() {
 
       {/* Content */}
       <main className="mx-auto max-w-4xl px-6 py-8">
+        {activeTab === "dashboard" && <Dashboard />}
         {activeTab === "cv-upload" && <CvUpload />}
         {activeTab === "profile-editor" && <ProfileEditor />}
         {activeTab === "form-mapping" && <FormMapping />}

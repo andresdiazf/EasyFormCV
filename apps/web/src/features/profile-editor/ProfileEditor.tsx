@@ -17,6 +17,7 @@ export default function ProfileEditor() {
   const queryClient = useQueryClient();
   const { data, isLoading } = useQuery({ queryKey: ["profile"], queryFn: getProfile });
   const [form, setForm] = useState<CandidateProfile>(EMPTY);
+  const [markdownMode, setMarkdownMode] = useState<"edit" | "preview">("edit");
 
   useEffect(() => {
     if (data) setForm(data);
@@ -80,6 +81,43 @@ export default function ProfileEditor() {
             rows={4}
             className="w-full rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder-slate-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
+        </div>
+
+        <div className="space-y-2 rounded-lg border border-slate-700 bg-slate-900 p-4">
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-slate-300">{t("superProfileTitle")}</label>
+            <div className="inline-flex overflow-hidden rounded border border-slate-700 text-xs">
+              <button
+                type="button"
+                onClick={() => setMarkdownMode("edit")}
+                className={`px-3 py-1 ${markdownMode === "edit" ? "bg-blue-600 text-white" : "bg-slate-800 text-slate-300"}`}
+              >
+                {t("markdownEdit")}
+              </button>
+              <button
+                type="button"
+                onClick={() => setMarkdownMode("preview")}
+                className={`px-3 py-1 ${markdownMode === "preview" ? "bg-blue-600 text-white" : "bg-slate-800 text-slate-300"}`}
+              >
+                {t("markdownPreview")}
+              </button>
+            </div>
+          </div>
+
+          {markdownMode === "edit" ? (
+            <textarea
+              name="summary"
+              value={form.summary ?? ""}
+              onChange={handleChange}
+              rows={8}
+              placeholder={t("superProfilePlaceholder")}
+              className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 font-mono text-sm text-slate-100 placeholder-slate-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            />
+          ) : (
+            <pre className="max-h-64 overflow-auto whitespace-pre-wrap rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-200">
+              {form.summary?.trim() || t("superProfileEmpty")}
+            </pre>
+          )}
         </div>
 
         {mutation.isError && (
